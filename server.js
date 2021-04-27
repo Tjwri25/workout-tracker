@@ -15,8 +15,17 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // add mongoose db connection
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/Workout',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
+  
 
-// change to async
 app.listen(PORT,function(){ 
     console.log(`App listening on Port ${PORT}`);
 });
