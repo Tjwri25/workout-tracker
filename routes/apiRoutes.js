@@ -37,14 +37,21 @@ router.get("/api/workouts", (req, res) => {
     });
   });
 
-router.get("/api/workouts/range", ({ query }, res) => {
-  Workout.find({ day: { $gte: query.start, $lte: query.end } })
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+  router.get("/api/workouts/range", ({ body }, res) => {
+    Workout.aggregate([
+      {
+        $addFields: {
+          totalDuration: { $sum: "$exercises.duration" }
+        }
+      }
+      ])
+      .limit(7)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
 module.exports = router;
