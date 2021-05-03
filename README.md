@@ -17,4 +17,3 @@ As a user, I want to be able to view create and track daily workouts. I want to 
 * Express
 
 ![mainpage](https://user-images.githubusercontent.com/74884495/116840316-9cd96580-ab92-11eb-9dd7-2a6fc2b6a587.png)
-![dashboard](https://user-images.githubusercontent.com/74884495/116840338-aa8eeb00-ab92-11eb-8000-ace3fbb0fbe8.png)
